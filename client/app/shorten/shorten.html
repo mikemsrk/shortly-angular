@@ -1,5 +1,8 @@
 <div id='container'>
 <!-- Your code here -->
+  <form name="new" ng-submit="new.$valid && addLink(link)" novalidate>
+    <input ng-model="link.url" ng-init="" placeholder="submit url.." type="url" required>
+  </form>
 
 </div>
 

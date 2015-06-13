@@ -29,6 +29,7 @@ h1 {
 
 .navigation li {
   float: left;
+  list-style:none;
 }
 
 .navigation li a {
@@ -124,6 +125,14 @@ input[type=url]:focus {
   border: #efe solid 2px;
   padding: 10px;
   margin: 0 10px;
+}
+
+.ng-invalid.ng-dirty{
+  border-color: #FA787E;
+}
+
+.ng-valid.ng-dirty{
+  border-color: #78FA89;
 }
 
 .creator {

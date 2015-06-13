@@ -2,10 +2,12 @@ angular.module('shortly.shorten', [])
 
 .controller('ShortenController', function ($scope, $location, Links) {
   // Your code here
-  $scope.link = {};
+  $scope.link = {url:''};
   $scope.addLink = function(link){
+    console.log(link);
     Links.postLink(link).then(function(resp){
-      $scope.link = resp.data;
+      $scope.link.url = '';
+      console.log(resp);
     });
   };
 });
