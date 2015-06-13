@@ -3,14 +3,19 @@
 // in our signup/signin forms using the injected Auth service
 angular.module('shortly.auth', [])
 
-.controller('AuthController', function ($scope, $window, $location, Auth) {
+.controller('AuthController', function ($rootScope, $scope, $window, $location, Auth) {
   $scope.user = {};
+  if($location.$$path === '/signout'){
+    Auth.signout();
+    $rootScope.$broadcast('authChange',Auth.isAuth());
+  }
 
   $scope.signin = function () {
     Auth.signin($scope.user)
       .then(function (token) {
         $window.localStorage.setItem('com.shortly', token);
         $location.path('/links');
+        $rootScope.$broadcast('authChange',Auth.isAuth());
       })
       .catch(function (error) {
         console.error(error);

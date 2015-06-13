@@ -4,10 +4,9 @@ angular.module('shortly.shorten', [])
   // Your code here
   $scope.link = {url:''};
   $scope.addLink = function(link){
-    console.log(link);
     Links.postLink(link).then(function(resp){
       $scope.link.url = '';
-      console.log(resp);
+      $scope.status = "Successful!";
     });
   };
 });

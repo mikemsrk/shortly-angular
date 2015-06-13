@@ -3,8 +3,18 @@ angular.module('shortly', [
   'shortly.links',
   'shortly.shorten',
   'shortly.auth',
-  'ngRoute'
+  'ngRoute',
+  'ngAnimate',
+  'ngFx'
 ])
+.controller('navController',function($rootScope, $scope,$window,Auth){
+
+  var init = function(){
+    $scope.sign = Auth.isAuth() ? 'Signout' : 'Signin';
+  }
+  $rootScope.$on('authChange',init);
+  init();
+})
 .config(function($routeProvider, $httpProvider) {
   $routeProvider
     .when('/signin', {
@@ -22,6 +32,10 @@ angular.module('shortly', [
     .when('/shorten',{
       templateUrl: 'app/shorten/shorten.html',
       controller: 'ShortenController'
+    })
+    .when('/signout',{
+      templateUrl: 'app/auth/signin.html',
+      controller: 'AuthController'
     })
     .otherwise({
       redirectTo: '/links'

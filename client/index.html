@@ -7,9 +7,10 @@
   </head>
   <body>
     <h1>Shortly</h1>
-    <ul class="navigation">
+    <ul class="navigation" ng-controller="navController">
       <li><a href="/#/shorten">Shorten</a></li>
       <li><a href="/#/links">Links</a></li>
+      <li class="signout"><a ng-model="sign" href="/#/signout">{{sign}}</a><li>
     </ul>
 
     <!-- the ng-view directive is where our templates will be loaded into when naviagted to -->
@@ -17,6 +18,9 @@
 
     <script src="lib/angular/angular.js"></script>
     <script src="lib/angular-route/angular-route.js"></script>
+    <script src="lib/angular-animate/angular-animate.min.js"></script>
+    <script src="lib/TweenMax.min.js"></script>
+    <script src="lib/ngFx/dist/ngFx.min.js"></script>
 
     <script src="app/auth/auth.js"></script>
     <script src="app/links/links.js"></script>

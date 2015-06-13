@@ -49,6 +49,11 @@ h1 {
   background-color: #ccc;
 }
 
+.navigation .signout{
+  float:right;
+  padding:0 30px;
+}
+
 #container {
   clear: both;
   margin-top: 10px;
@@ -68,6 +73,11 @@ h1 {
 .link img {
   float: left;
   margin: 0 5px;
+}
+
+.links td{
+  padding:10px 50px;
+  text-align:left;
 }
 
 .link .visits {
@@ -153,5 +163,16 @@ input[type=url]:focus {
 
 .creator .message {
   clear: both;
+}
+
+.success{
+  padding: 0px 20px;
+  color:green;
+  font-family:'century gothic';
+}
+
+.searchbox {
+  width:40%;
+  display:inline;
 }
 

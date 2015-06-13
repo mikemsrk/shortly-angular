@@ -1,8 +1,18 @@
 <div id='container'>
   <!-- Your html here -->
-  <label>Search: <input ng-model="searchText"></label>
-  <ul ng-repeat="link in data.links | orderBy: '-visits' | filter:searchText">
-    <li><a class="link" href={{link.base_url}}/#/links/?code={{link.code}}>{{link.title}}</a> {{link.visits}} </li>
-  </ul>
+  <table class="links">
+    <thead>
+      <tr>
+        <td><input class="searchbox" ng-model="searchText"></td>
+        <td>Visits</td>
+      </tr>
+    </thead>
+      <tr ng-repeat="link in data.links | orderBy: '-visits' | filter:searchText">
+        <td> <a class="link" href={{link.base_url}}/#/links/?code={{link.code}}>{{link.title}}</a> </td>
+        <td class="link visits"> {{link.visits}}</td>
+      </tr>
+    <tbody>
+    </tbody>
+  </table>
 
 </div>

@@ -3,7 +3,6 @@ angular.module('shortly.links', [])
 .controller('LinksController', function ($scope, $location, Links) {
   // Your code here
   if($location.$$search.code){
-
     // Redirect
     Links.getLinks($location.$$search.code).then(function(resp){
       window.location.href = resp.data;
