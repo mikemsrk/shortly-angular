@@ -2,11 +2,18 @@ angular.module('shortly.services', [])
 
 .factory('Links', function ($http) {
   // Your code here
-  var getLinks = function(){
-    return $http({
-      method: 'GET',
-      url: '/api/links'
-    });
+  var getLinks = function(param){
+    if(param){
+      return $http({
+        method: 'GET',
+        url: '/api/links/code?='+param
+      });
+    }else{
+      return $http({
+        method: 'GET',
+        url: '/api/links/'
+      });
+    }
   };
 
   var postLink = function(data){

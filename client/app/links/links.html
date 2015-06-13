@@ -1,7 +1,8 @@
 <div id='container'>
   <!-- Your html here -->
-  <ul ng-repeat="link in data.links">
-    <li><a class="link" href={{link.base_url}}/#/{{link.code}}>{{link.title}}</a> </li>
+  <label>Search: <input ng-model="searchText"></label>
+  <ul ng-repeat="link in data.links | orderBy: '-visits' | filter:searchText">
+    <li><a class="link" href={{link.base_url}}/#/links/?code={{link.code}}>{{link.title}}</a> {{link.visits}} </li>
   </ul>
 
 </div>

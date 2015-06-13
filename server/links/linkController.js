@@ -5,6 +5,8 @@ var Link    = require('./linkModel.js'),
 
 module.exports = {
   findUrl: function (req, res, next, code) {
+    console.log('finding url...');
+    code = req.url.slice(-5);
     var findLink = Q.nbind(Link.findOne, Link);
     findLink({code: code})
       .then(function (link) {
@@ -78,7 +80,10 @@ module.exports = {
       if (err) {
         next(err);
       } else {
-        res.redirect(savedLink.url);
+        res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+        // res.redirect(savedLink.url);
+        // res.send(savedLink.url);
+        res.end(savedLink.url);
       }
     });
   }
